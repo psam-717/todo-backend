@@ -1,0 +1,38 @@
+### 
+POST http://localhost:5000/api/todos/create
+Content-Type: application/json
+
+{
+    "task": "Kill Gibson"
+}
+
+###
+Get http://localhost:5000/api/todos/all
+Content-Type: application/json
+
+
+###
+Get http://localhost:5000/api/todos/single/68d97d34340f21b4ba5f9df7
+Content-Type: application/json
+
+
+###
+PATCH  http://localhost:5000/api/todos/mark/68d962cbfdacfd2447f89bb1
+Content-Type: application/json
+
+
+###
+PUT  http://localhost:5000/api/todos/update/68d97d34340f21b4ba5f9df7
+Content-Type: application/json
+
+{
+    "task": "Walk around"
+}
+
+
+###
+DELETE   http://localhost:5000/api/todos/delete/68d97d34340f21b4ba5f9df7
+Content-Type: application/json
+
+
+
