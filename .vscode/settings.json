@@ -1,0 +1,7 @@
+{
+    "yaml.schemas": {
+        "https://www.artillery.io/schema.json": [
+            "file:///d%3A/Projects/gibson-todo/todo-backend/artillery/load-test.yml"
+        ]
+    }
+}
