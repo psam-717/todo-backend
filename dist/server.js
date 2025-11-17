@@ -9,16 +9,23 @@ const env_1 = require("./config/env");
 // const server = http.createServer(app);
 const PORT = env_1.ENV.APP.PORT || 4000;
 async function startServer() {
-    try {
-        await (0, db_config_1.connectDB)();
-        app_1.default.listen(PORT, () => {
-            console.log(`Server is listening on port ${PORT}`);
-        });
+    // skip the DB connection in CI
+    if (!process.env.CI) {
+        try {
+            await (0, db_config_1.connectDB)();
+        }
+        catch (error) {
+            console.log('Failed to start server', error);
+            process.exit(1);
+        }
     }
-    catch (error) {
-        console.log('Failed to start server', error);
-        process.exit(1);
+    else {
+        console.log("CI detected, skipping database");
     }
+    app_1.default.listen(PORT, () => {
+        console.log(`Server is listening on port ${PORT}`);
+        console.log(`Health endpoint: http://localhost:${PORT}/health`);
+    });
 }
 startServer();
 //# sourceMappingURL=server.js.map
