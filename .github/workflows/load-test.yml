@@ -33,7 +33,7 @@ jobs:
        run: npx wait-on http://localhost:4000/health --timeout 60000
 
      - name: Run with artillery
-       run: npx artillery run artillery/load-test.yaml --output report.json
+       run: npx artillery run artillery/load-test.yml --output report.json
 
      - name: Upload artillery report
        uses: actions/upload-artifact@v4
