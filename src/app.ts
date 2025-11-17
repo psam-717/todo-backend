@@ -4,6 +4,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import toDoRoutes from "./routes/todo.routes";
 import userRoutes from "./routes/user.routes";
+import healthRoute from "./routes/health.routes";
 import { errorHandler } from "./middlewares/error.middleware";
 import cookieParser from "cookie-parser";
 
@@ -22,6 +23,7 @@ app.use(cookieParser()) // parses cookies from req headers and populates it
 
 
 // specify routes
+app.use('/', healthRoute)
 app.use('/api/todos', toDoRoutes);
 app.use('/api/users', userRoutes);
 app.use(errorHandler);
