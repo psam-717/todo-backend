@@ -7,7 +7,7 @@ const app_1 = __importDefault(require("./app"));
 const db_config_1 = require("./config/db.config");
 const env_1 = require("./config/env");
 // const server = http.createServer(app);
-const PORT = env_1.ENV.APP.PORT;
+const PORT = env_1.ENV.APP.PORT || 4000;
 async function startServer() {
     try {
         await (0, db_config_1.connectDB)();
